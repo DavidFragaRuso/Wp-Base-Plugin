@@ -99,7 +99,7 @@ function dfr_base_adminmenu(){
         //3 //Position of the item in the menu, by default it is placed at the end.
     );
 }
-function ltw_base_page() {
+function dfr_base_page() {
     ?>
     <div class="wrap ltw-panel">
         <p>Page content here</p>
