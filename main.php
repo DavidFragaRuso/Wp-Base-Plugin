@@ -36,6 +36,38 @@ function dfr_base_install() {
     }
 }
 
+// Load text domain and language files for traductions
+
+/**
+ * How to create .POT file for make translations (with free version of PoEdit)
+ * 
+ * In PoEdit:
+ * 
+ * 1.In the "File" menu select "New"
+ * 2.Select the language that you used in your theme (probably English)
+ * 3.In the "Catalog" menu select "Properties"
+ * 4.Enter the project information in the "Translation properties" tab
+ * 5.Go to the 3rd tab "Sources keywords"
+ * 6.Click on the "New item" button (2nd button) and enter a keyword and repeat this for each of your keywords (__, _e, esc_attr_e, etc.)
+ * 7.Click on the "OK" button at the bottom
+ * 8.In the "File" menu select "Save As.."
+ * 9.Save the file as "yourthemename.pot" in the "languages" folder in your theme directory (make sure you add the .pot extension to the filename because by default it will save as .po)
+ * 10.In the "Catalog" menu select "Properties" again
+ * 11.Go to the 2nd tab "Sources paths"
+ * 12.Click the "+" button under "Path" textarea and select "Add folders".(this will make it scan your plugin directory and its subdirectories)
+ * 13.Select the main folder of your plugin
+ * 14.Click on the "OK" button at the bottom
+ * 15.In the project window click on "Update" (2nd icon at the top)
+ * 16.In the "File" menu click "Save". It creates .POT and .MO files
+ * 
+ * From the .POT file extension you can create different translation files and save them as .PO files.
+ */
+
+function dfr_base_languages() {
+    $textdomain = 'dfr_dev';
+    load_plugin_textdomain( $textdomain, false, 'WP-BASE-PLUGIN/languages' );
+}
+
 //Register css/js files on frontend:
 //Comment-uncomment based on plugin needs
 function dfr_base_register_scripts(){
